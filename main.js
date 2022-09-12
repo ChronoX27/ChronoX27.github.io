@@ -13,7 +13,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 // BACKGROUND
-const backgroundTexture = new THREE.TextureLoader().load('/Space5.jpg');
+const backgroundTexture = new THREE.TextureLoader().load('images/Space5.jpg');
 scene.background = backgroundTexture;
 
 // LIGHTS + HELPERS
@@ -78,7 +78,7 @@ torus.position.x = 3
 scene.add(torus);
 
 // BOX
-const boxTexture = new THREE.TextureLoader().load('/Chrono1.png');
+const boxTexture = new THREE.TextureLoader().load('images/Chrono1.png');
 const box = new THREE.Mesh(
     new THREE.BoxGeometry(1, 1, 1),
     new THREE.MeshBasicMaterial( { map: boxTexture } )
