@@ -1,4 +1,4 @@
-//const { HemisphereLight } = require("three");
+/const { HemisphereLight } = require("three");
 
 //import './style.css'
 const scene = new THREE.Scene();
@@ -26,7 +26,7 @@ pointLight3.position.set(4, 0, 1.5)
 const lightHelper1 = new THREE.PointLightHelper(pointLight1, 0.1, 0x0000FF);
 const lightHelper2 = new THREE.PointLightHelper(pointLight2, 0.1, 0x00FF00);
 const lightHelper3 = new THREE.PointLightHelper(pointLight3, 0.1, 0xFF0000);
-const ambientLight = new THREE.AmbientLight('rgb(73, 1, 125)', 0.5);
+const ambientLight = new THREE.AmbientLight('rgb(73, 1, 125)', 0.4);
 
 const hemisphereLight = new THREE.HemisphereLight(0xffffbb, 0x080820, 1);
 
@@ -45,7 +45,7 @@ function addRandomLights() {
     colorString = 'rgb(' + String(r) + ', ' + String(g) + ', ' + String(b) +')'
     const color = new THREE.Color(colorString);
 
-    const light = new THREE.PointLight(color, 2, 10);
+    const light = new THREE.PointLight(color, 1.7, 12);
 
     const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randInt(-30, 30));
     light.position.set(x, y, z);
@@ -91,7 +91,7 @@ scene.add(box);
 function moveCamera() {
     const t = document.body.getBoundingClientRect().top;
     torus.rotation.x += 0.05;
-    torus.position.x = 3 + t * -0.005;
+    torus.position.x = 3 + t * -0.004;
 
     box.position.z =  t * -0.004;
     box.rotation.x += 0.02;
@@ -100,7 +100,7 @@ function moveCamera() {
 
     camera.position.z = 3 + t * -0.005;
     // camera.position.x = t * -0.0002;
-    camera.position.y = t * -0.0002;
+    camera.position.y = t * 0.0002;
 }
 
 document.body.onscroll = moveCamera;
@@ -110,7 +110,7 @@ function animate() {
     torus.rotation.y += 0.002;
     box.rotation.x += 0.003;
     box.rotation.y -= 0.003;
-    box.rotation.z += 0.002;
+    box.rotation.z += 0.003;
     renderer.render(scene, camera);
 };
 
