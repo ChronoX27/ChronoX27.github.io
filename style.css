@@ -67,16 +67,20 @@ blockquote {
 
 blockquote p {
   color: black;
-  background-color: white;
+  background-color: #0E8;
   font-size: 4rem;
   display: inline;
-  line-height: 1;
+  line-height: 1.4;
 }
 
 .left {
   grid-column: 6 / 12;
 }
 
-.right {
-  grid-column: 1 / 6;
+a:link {
+  color: #0FF;
+}
+
+a:visited {
+  color: #00D573;
 }
