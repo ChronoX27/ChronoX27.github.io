@@ -1,6 +1,3 @@
-//const { HemisphereLight } = require("three");
-
-//import './style.css'
 const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100);
@@ -25,16 +22,17 @@ pointLight2.position.set(1, 0, 0);
 pointLight3.position.set(4, 0, 1.5)
 const lightHelper1 = new THREE.PointLightHelper(pointLight1, 0.1, 0x0000FF);
 const lightHelper2 = new THREE.PointLightHelper(pointLight2, 0.1, 0x00FF00);
-const lightHelper3 = new THREE.PointLightHelper(pointLight3, 0.1, 0xFF0000);
-const ambientLight = new THREE.AmbientLight('rgb(73, 1, 125)', 0.4);
+const lightHelper3 = new THREE.PointLightHelper(pointLight3, 1, 0xFF0000);
+const ambientLight = new THREE.AmbientLight(0xE8A0C2, 0.4);
 
-const hemisphereLight = new THREE.HemisphereLight(0xffffbb, 0x080820, 1);
+// const hemisphereLight = new THREE.HemisphereLight(0xffffbb, 0x080820, 1);
 
 
 scene.add(pointLight1, pointLight2, pointLight3);
 //scene.add(lightHelper1, lightHelper2, lightHelper3);
+scene.add(lightHelper3);
 scene.add(ambientLight);
-scene.add(hemisphereLight)
+//scene.add(hemisphereLight)
 
 // RANDOM LIGHTS
 function addRandomLights() {
@@ -45,21 +43,18 @@ function addRandomLights() {
     colorString = 'rgb(' + String(r) + ', ' + String(g) + ', ' + String(b) +')'
     const color = new THREE.Color(colorString);
 
-    const light = new THREE.PointLight(color, 1.7, 12);
+    const light = new THREE.PointLight(color, 2, 15);
 
-    const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randInt(-30, 30));
+    const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randInt(-40, 40));
     light.position.set(x, y, z);
     
     //const lightHelper = new THREE.PointLightHelper(light, 0.1, color);
     scene.add(light) //, lightHelper);
 }
 
-Array(50).fill().forEach(addRandomLights);
-
-
 // STARS
 function addStar() {
-    const geometry = new THREE.SphereGeometry(THREE.MathUtils.randFloat(0.1, 0.2));
+    const geometry = new THREE.SphereGeometry(THREE.MathUtils.randFloat(0.1, 0.25));
     const material = new THREE.MeshStandardMaterial( {color: 0xFFFFFF} );
     const star = new THREE.Mesh( geometry, material );
 
@@ -68,7 +63,10 @@ function addStar() {
     scene.add(star);
 }
 
-Array(500).fill().forEach(addStar);
+ Array(500).fill().forEach(addStar);
+ Array(70).fill().forEach(addRandomLights);
+
+
 
 // TORUS
 const geometry = new THREE.TorusGeometry(1.5, 0.4, 20, 200);
@@ -101,9 +99,13 @@ function moveCamera() {
     camera.position.z = 3 + t * -0.005;
     // camera.position.x = t * -0.0002;
     camera.position.y = t * 0.0002;
+
+  
+    pointLight3.position.set(torus.position);
 }
 
 document.body.onscroll = moveCamera;
+direction = 1;
 
 function animate() {
     requestAnimationFrame(animate);
@@ -111,6 +113,11 @@ function animate() {
     box.rotation.x += 0.003;
     box.rotation.y -= 0.003;
     box.rotation.z += 0.003;
+ 
+    if (camera.rotation.y > 0.25){ direction = -1 } 
+    else if (camera.rotation.y < -0.18) { direction = 1 }
+    camera.rotation.y += direction * 0.0003;
+
     renderer.render(scene, camera);
 };
 
