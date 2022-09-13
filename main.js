@@ -1,4 +1,4 @@
-/const { HemisphereLight } = require("three");
+//const { HemisphereLight } = require("three");
 
 //import './style.css'
 const scene = new THREE.Scene();
