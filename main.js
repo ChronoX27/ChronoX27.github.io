@@ -14,23 +14,20 @@ const backgroundTexture = new THREE.TextureLoader().load('images/Space5.jpg');
 scene.background = backgroundTexture;
 
 // LIGHTS + HELPERS
-const pointLight1 = new THREE.PointLight(0x3c00FE, 1, 10);
-const pointLight2 = new THREE.PointLight(0x048F42, 1, 10);
-const pointLight3 = new THREE.PointLight(0xFF3F42, 0.7, 10);
-pointLight1.position.set(7, 0, 2);
-pointLight2.position.set(1, 0, 0);
-pointLight3.position.set(4, 0, 1.5)
-const lightHelper1 = new THREE.PointLightHelper(pointLight1, 0.1, 0x0000FF);
-const lightHelper2 = new THREE.PointLightHelper(pointLight2, 0.1, 0x00FF00);
-const lightHelper3 = new THREE.PointLightHelper(pointLight3, 1, 0xFF0000);
-const ambientLight = new THREE.AmbientLight(0xE8A0C2, 0.4);
-
+const pointLight1 = new THREE.PointLight(0x3c00FE, 1, 10); // GREEN
+const pointLight2 = new THREE.PointLight(0x048F42, 1, 10); // BLUE
+const pointLight3 = new THREE.PointLight(0xFF3F42, 0.7, 10); // RED
+pointLight1.position.set(7, 3, 2);
+pointLight2.position.set(1, -1, 0);
+pointLight3.position.set(3, 0, 1.5);
+const lightHelper1 = new THREE.PointLightHelper(pointLight1, 0.3, 0x0000FF);
+const lightHelper2 = new THREE.PointLightHelper(pointLight2, 0.3, 0x00FF00);
+const lightHelper3 = new THREE.PointLightHelper(pointLight3, 0.3, 0xFF0000);
+const ambientLight = new THREE.AmbientLight(0xF8F8F8, 0.4);
 // const hemisphereLight = new THREE.HemisphereLight(0xffffbb, 0x080820, 1);
-
 
 scene.add(pointLight1, pointLight2, pointLight3);
 //scene.add(lightHelper1, lightHelper2, lightHelper3);
-scene.add(lightHelper3);
 scene.add(ambientLight);
 //scene.add(hemisphereLight)
 
@@ -67,7 +64,6 @@ function addStar() {
  Array(70).fill().forEach(addRandomLights);
 
 
-
 // TORUS
 const geometry = new THREE.TorusGeometry(1.5, 0.4, 20, 200);
 const material = new THREE.MeshStandardMaterial({ color: 0xECECFF, });
@@ -78,12 +74,11 @@ scene.add(torus);
 // BOX
 const boxTexture = new THREE.TextureLoader().load('images/Chrono1.png');
 const box = new THREE.Mesh(
-    new THREE.BoxGeometry(1, 1, 1),
+    new THREE.BoxGeometry(0.8, 0.8, 0.8),
     new THREE.MeshBasicMaterial( { map: boxTexture } )
 );
 box.position.x = 3;
 scene.add(box);
-
 
 
 function moveCamera() {
@@ -101,7 +96,7 @@ function moveCamera() {
     camera.position.y = t * 0.0002;
 
   
-    pointLight3.position.set(torus.position);
+    pointLight3.position.x = torus.position.x;
 }
 
 document.body.onscroll = moveCamera;
@@ -109,7 +104,7 @@ direction = 1;
 
 function animate() {
     requestAnimationFrame(animate);
-    torus.rotation.y += 0.002;
+    torus.rotation.y += 0.003;
     box.rotation.x += 0.003;
     box.rotation.y -= 0.003;
     box.rotation.z += 0.003;
