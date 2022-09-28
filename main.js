@@ -10,7 +10,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 // BACKGROUND
-const backgroundTexture = new THREE.TextureLoader().load('images/Space5.jpg');
+const backgroundTexture = new THREE.TextureLoader().load('images/Space01.jpg');
 scene.background = backgroundTexture;
 
 // LIGHTS + HELPERS
@@ -24,12 +24,11 @@ const lightHelper1 = new THREE.PointLightHelper(pointLight1, 0.3, 0x0000FF);
 const lightHelper2 = new THREE.PointLightHelper(pointLight2, 0.3, 0x00FF00);
 const lightHelper3 = new THREE.PointLightHelper(pointLight3, 0.3, 0xFF0000);
 const ambientLight = new THREE.AmbientLight(0xF8F8F8, 0.4);
-// const hemisphereLight = new THREE.HemisphereLight(0xffffbb, 0x080820, 1);
 
 scene.add(pointLight1, pointLight2, pointLight3);
 //scene.add(lightHelper1, lightHelper2, lightHelper3);
 scene.add(ambientLight);
-//scene.add(hemisphereLight)
+
 
 // RANDOM LIGHTS
 function addRandomLights() {
@@ -97,6 +96,7 @@ function moveCamera() {
 
   
     pointLight3.position.x = torus.position.x;
+    lightHelper3.position.x = pointLight3.position.x;
 }
 
 document.body.onscroll = moveCamera;
@@ -112,6 +112,10 @@ function animate() {
     if (camera.rotation.y > 0.25){ direction = -1 } 
     else if (camera.rotation.y < -0.18) { direction = 1 }
     camera.rotation.y += direction * 0.0003;
+
+    if (camera.rotation.x > 0.2) { direction = -1 }
+    else if (camera.rotation.x < -0.18) { direction = 1 }
+    camera.rotation.x += direction * 0.00015;
 
     renderer.render(scene, camera);
 };
