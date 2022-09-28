@@ -10,7 +10,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 // BACKGROUND
-const backgroundTexture = new THREE.TextureLoader().load('images/Space01.jpg');
+const backgroundTexture = new THREE.TextureLoader().load('images/space_background.jpg');
 scene.background = backgroundTexture;
 
 // LIGHTS + HELPERS
