@@ -11,7 +11,7 @@ body {
 }
 
 :root {
-  --dark-bg: #0f0f0fe5;
+  --dark-bg: #0f0f0fcc;
   --spacing: 330px;
   font-family: brandon-grotesque, sans-serif;
   font-weight: 400;
@@ -63,13 +63,16 @@ blockquote {
 
 blockquote p {
   color: black;
-  background-color: #0E8;
+  background-color: #00ee88;
   font-size: 4rem;
   display: inline;
   line-height: 1.4;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
-.left {
+
+.right {
   grid-column: 6 / 12;
 }
 
@@ -84,25 +87,19 @@ a:visited {
 }
 
 .logo {
-  width: 50px;
-  height: 50px;
+  width: 43px;
+  height: 43px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  top: 80px;
 }
 
 .instagram {
   grid-column: 6;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  top: 80px;
-
 }
 
 .github {
   grid-column: 7;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  top: 80px;
 }
