@@ -1,3 +1,4 @@
+/* Font import */
 @import url("https://use.typekit.net/jmk3xov.css");
 
 canvas {
@@ -13,6 +14,7 @@ body {
 :root {
   --dark-bg: #0f0f0fcc;
   --spacing: 330px;
+  /* font-family: brandon-grotesque, sans-serif; */
   font-family: brandon-grotesque, sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -35,6 +37,14 @@ h1, h2, h3, blockquote {
   font-weight: 700;
   font-style: normal;
   color: #0FF;
+}
+
+h2, h3, .subheading {
+  font-family: elevon, sans-serif;
+}
+
+.subheading {
+  font-size: 30px;
 }
 
 header {
@@ -70,7 +80,6 @@ blockquote p {
   padding-left: 10px;
   padding-right: 10px;
 }
-
 
 .right {
   grid-column: 6 / 12;
