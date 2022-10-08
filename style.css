@@ -81,6 +81,7 @@ blockquote p {
   padding-right: 10px;
 }
 
+/* Emojies are tagged with e and made bigger */
 h2 e {
   font-size: 35px; 
 }
