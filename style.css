@@ -33,20 +33,6 @@ main {
   grid-template-columns: repeat(12, 1fr);
 }
 
-h1, h2, h3, blockquote {
-  font-weight: 700;
-  font-style: normal;
-  color: #0FF;
-}
-
-h2, h3, .subheading {
-  font-family: elevon, sans-serif;
-}
-
-.subheading {
-  font-size: 30px;
-}
-
 header {
   background: var(--dark-bg);
   grid-column: 2 / span 5;
@@ -64,6 +50,20 @@ section {
   margin-bottom: var(--spacing);
 }
 
+h1, h2, h3, blockquote {
+  font-weight: 700;
+  font-style: normal;
+  color: #0FF;
+}
+
+h2, h3 {
+  font-family: elevon, sans-serif;
+}
+
+.subheading {
+  font-size: 30px;
+}
+
 blockquote {
   margin: 0;
   padding: 0;
@@ -79,6 +79,14 @@ blockquote p {
   line-height: 1.4;
   padding-left: 10px;
   padding-right: 10px;
+}
+
+h2 e {
+  font-size: 35px; 
+}
+
+h3 e{
+  font-size: 27px;
 }
 
 .right {
