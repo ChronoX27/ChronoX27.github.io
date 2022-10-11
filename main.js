@@ -39,7 +39,7 @@ function addRandomLights() {
     colorString = 'rgb(' + String(r) + ', ' + String(g) + ', ' + String(b) +')'
     const color = new THREE.Color(colorString);
 
-    const light = new THREE.PointLight(color, 2, 15);
+    const light = new THREE.PointLight(color, 2, 17);
 
     const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randInt(-40, 40));
     light.position.set(x, y, z);
@@ -104,18 +104,28 @@ direction = 1;
 
 function animate() {
     requestAnimationFrame(animate);
+
+// BOX + TORUS ANIMATION
     torus.rotation.y += 0.003;
     box.rotation.x += 0.003;
     box.rotation.y -= 0.003;
     box.rotation.z += 0.003;
  
-    if (camera.rotation.y > 0.25){ direction = -1 } 
-    else if (camera.rotation.y < -0.18) { direction = 1 }
-    camera.rotation.y += direction * 0.0003;
-
+// CAMERA ROTATION
+    // X-ROTATION
     if (camera.rotation.x > 0.2) { direction = -1 }
-    else if (camera.rotation.x < -0.18) { direction = 1 }
+    else if (camera.rotation.x < -0.17) { direction = 1 }
     camera.rotation.x += direction * 0.00015;
+
+    // Y-ROTATION
+    if (camera.rotation.y > 0.25){ direction = -1 } 
+    else if (camera.rotation.y < -0.185) { direction = 1 }
+    camera.rotation.y += direction * 0.0003;
+    
+    // Z-ROTATION
+    if (camera.rotation.z > 0.15) { direction = -1 }
+    else if (camera.rotation.z < -0.18) { direction = 1 }
+    camera.rotation.z += direction * 0.00017;
 
     renderer.render(scene, camera);
 };
