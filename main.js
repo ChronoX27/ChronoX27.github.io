@@ -101,6 +101,11 @@ function moveCamera() {
 
 document.body.onscroll = moveCamera;
 direction = 1;
+const MAX_ROT = 7300;
+const MIN_ROT = 1700;
+const X_ROT = 1 / Math.floor(Math.random() * (MAX_ROT - MIN_ROT) + MIN_ROT);
+const Y_ROT = 1 / Math.floor(Math.random() * (MAX_ROT - MIN_ROT) + MIN_ROT);
+const Z_ROT = 0.6 / Math.floor(Math.random() * (MAX_ROT - MIN_ROT) + MIN_ROT);
 
 function animate() {
     requestAnimationFrame(animate);
@@ -115,17 +120,17 @@ function animate() {
     // X-ROTATION
     if (camera.rotation.x > 0.2) { direction = -1 }
     else if (camera.rotation.x < -0.17) { direction = 1 }
-    camera.rotation.x += direction * 0.00015;
+    camera.rotation.x += direction * X_ROT;
 
     // Y-ROTATION
     if (camera.rotation.y > 0.25){ direction = -1 } 
     else if (camera.rotation.y < -0.185) { direction = 1 }
-    camera.rotation.y += direction * 0.0003;
+    camera.rotation.y += direction * Y_ROT;
     
     // Z-ROTATION
     if (camera.rotation.z > 0.15) { direction = -1 }
     else if (camera.rotation.z < -0.18) { direction = 1 }
-    camera.rotation.z += direction * 0.00017;
+    camera.rotation.z += direction * Z_ROT;
 
     renderer.render(scene, camera);
 };
