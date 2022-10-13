@@ -20,13 +20,9 @@ const pointLight3 = new THREE.PointLight(0xFF3F42, 0.7, 10); // RED
 pointLight1.position.set(7, 3, 2);
 pointLight2.position.set(1, -1, 0);
 pointLight3.position.set(3, 0, 1.5);
-const lightHelper1 = new THREE.PointLightHelper(pointLight1, 0.3, 0x0000FF);
-const lightHelper2 = new THREE.PointLightHelper(pointLight2, 0.3, 0x00FF00);
-const lightHelper3 = new THREE.PointLightHelper(pointLight3, 0.3, 0xFF0000);
 const ambientLight = new THREE.AmbientLight(0xF8F8F8, 0.4);
 
 scene.add(pointLight1, pointLight2, pointLight3);
-//scene.add(lightHelper1, lightHelper2, lightHelper3);
 scene.add(ambientLight);
 
 
@@ -91,7 +87,6 @@ function moveCamera() {
     box.rotation.z += 0.001;
 
     camera.position.z = 3 + t * -0.005;
-    // camera.position.x = t * -0.0002;
     camera.position.y = t * 0.0002;
 
   
