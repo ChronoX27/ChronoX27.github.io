@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: chronox27.github.io
+Token: 9b2560be6afe81d99043a84be18329081aab1931efa4f3fd40182ff1e37ae390
