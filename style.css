@@ -8,11 +8,6 @@
   src: url(fonts/spyagencyv3.ttf)
 }
 
-@font-face {
-  font-family: glametrix;
-  src: url(fonts/glametrix-bold.otf);
-}
-
 canvas {
   position: fixed;
   top: 0;
