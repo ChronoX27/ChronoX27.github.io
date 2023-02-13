@@ -1,5 +1,17 @@
-/* Font import */
-@import url("https://use.typekit.net/jmk3xov.css");
+@font-face {
+  font-family: Brandon;
+  src: url(fonts/Brandon_med.otf)
+}
+
+@font-face {
+  font-family: spyagency;
+  src: url(fonts/spyagencyv3.ttf)
+}
+
+@font-face {
+  font-family: glametrix;
+  src: url(fonts/glametrix-bold.otf);
+}
 
 canvas {
   position: fixed;
@@ -15,7 +27,7 @@ body {
   --dark-bg: #0f0f0fcc;
   --spacing: 330px;
   /* font-family: brandon-grotesque, sans-serif; */
-  font-family: brandon-grotesque, sans-serif;
+  font-family: Brandon, sans-serif;
   font-weight: 400;
   font-style: normal;
 }
@@ -42,29 +54,43 @@ header {
 }
 
 section {
+  /* font-size: 1.25rem; */
+  font-size: 23px;
   grid-column: 2 / 8;
   padding: 1rem;
   background: var(--dark-bg);
-  font-size: 1.25rem;
   line-height: 1.5;
   margin-bottom: var(--spacing);
 }
 
 h1, h2, h3, blockquote {
-  font-weight: 700;
+  font-weight: 500;
   font-style: normal;
   color: #0FF;
 }
 
 h2, h3 {
-  font-family: elevon, sans-serif;
+  font-family: spyagency, sans-serif;
 }
 
 .subheading {
-  font-size: 30px;
+  font-size: 37px;
+}
+
+h1 {
+  font-size: 84px;
+}
+
+h2 {
+  font-size: 34px;
+}
+
+h3 {
+  font-size: 24px;
 }
 
 blockquote {
+  font-weight: 700;
   margin: 0;
   padding: 0;
   grid-column: 2 / span 9;
@@ -74,20 +100,11 @@ blockquote {
 blockquote p {
   color: black;
   background-color: #00ee88;
-  font-size: 4rem;
+  font-size: 62px;
   display: inline;
   line-height: 1.4;
   padding-left: 10px;
   padding-right: 10px;
-}
-
-/* Emojies are tagged with e and made bigger */
-h2 e {
-  font-size: 35px; 
-}
-
-h3 e{
-  font-size: 27px;
 }
 
 .right {

@@ -91,7 +91,7 @@ function moveCamera() {
 
   
     pointLight3.position.x = torus.position.x;
-    lightHelper3.position.x = pointLight3.position.x;
+    // lightHelper3.position.x = pointLight3.position.x;
 }
 
 document.body.onscroll = moveCamera;
