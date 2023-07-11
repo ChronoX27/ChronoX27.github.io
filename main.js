@@ -30,7 +30,7 @@ scene.add(ambientLight);
 // RANDOM LIGHTS
 function addRandomLights() {
 
-    [r, g, b] = Array(3).fill().map(() => THREE.MathUtils.randInt(-40, 40));
+    [r, g, b] = Array(3).fill().map(() => THREE.MathUtils.randInt(0, 255));
     colorString = `rgb(${String(r)}, ${String(g)}, ${String(b)})`;
     const color = new THREE.Color(colorString);
 
