@@ -18,6 +18,11 @@ body {
   margin: 0;
 }
 
+.questions {
+  background-color: #0f0f0fcc;
+  color: #fff6ea;
+}
+
 :root {
   --dark-bg: #0f0f0fcc;
   --spacing: 330px;
